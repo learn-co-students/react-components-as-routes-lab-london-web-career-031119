@@ -1,8 +1,21 @@
 import React from 'react';
 import { render } from 'react-dom';
-import App from './containers/App';
+import { BrowserRouter as Router, Route } from "react-router-dom"
+import NavBar from './components/NavBar';
 
-render (
-  <App />,
+import Home from './components/Home';
+import Actors from './components/Actors';
+import Directors from './components/Directors';
+import Movies from './components/Movies';
+render((
+  <Router>
+    <React.Fragment>
+      <NavBar />
+      <Route path="/" component={Home} />
+      <Route exact path="/actors" component={Actors} />
+      <Route exact path="/directors" component={Directors} />
+      <Route exact path="/movies" component={Movies} />
+    </React.Fragment>
+  </Router>),
   document.getElementById('root')
 );
